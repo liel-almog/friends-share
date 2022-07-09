@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import classes from './hello-world.module.scss';
 
 export const HelloWorld: React.FC = () => {
@@ -13,6 +14,9 @@ export const HelloWorld: React.FC = () => {
                 Click me
             </button>
             <p>You clicked {counter} times</p>
+            <Link className={classes.link} to={'/login'}>
+                Go To Login Page
+            </Link>
         </div>
     );
 };
