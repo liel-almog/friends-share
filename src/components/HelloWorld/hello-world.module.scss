@@ -1,0 +1,56 @@
+@use '../../theme/theme' as *;
+
+.container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+
+    & > h1 {
+        font-weight: 900;
+        font-size: 4rem;
+        color: white;
+    }
+
+    & > button {
+        @include base-button($primary-light, $primary-dark);
+        @include darken-actions($primary-light, $primary-dark);
+        @include scale-actions;
+        transition: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+        padding: {
+            inline: 1rem;
+            block: 0.5rem;
+        }
+        border-radius: 0.2rem;
+    }
+
+    & > p {
+        font-size: 1.5rem;
+        color: white;
+    }
+
+    // background gradient animation
+    background: linear-gradient(
+        -45deg,
+        $primary-dark,
+        lighten($primary-dark, 15),
+        lighten($primary-dark, 25),
+        lighten($primary-dark, 15)
+    );
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
